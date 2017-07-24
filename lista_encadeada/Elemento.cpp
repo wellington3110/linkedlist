@@ -23,7 +23,7 @@ void Elemento::setProximo(Elemento *elemento){
 	this->proximo= elemento;
 }
 void Elemento::setAnterior(Elemento * elemento){
-	this->anterior;
+	this->anterior= elemento;
 }
 
 

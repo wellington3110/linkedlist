@@ -18,6 +18,8 @@ public:
    bool del(int indice);
 
    bool set(int indice, int valor);
+   bool isEmpty();
+   void con(ListaEncadeada &novaLista);
    
    int getSize();
    int get(int indice);  
@@ -26,7 +28,6 @@ public:
    void forAllEnd();
 
    void sort();
-   void con(ListaEncadeada &novaLista);
 
 private:
    Elemento *ultimo;

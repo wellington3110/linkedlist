@@ -61,11 +61,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Elemento.cpp" />
+    <ClCompile Include="GerenciadorSistema.cpp" />
     <ClCompile Include="ListaEncadeada.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
+    <ClInclude Include="GerenciadorSistema.h" />
     <ClInclude Include="ListaEncadeada.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -24,12 +24,18 @@
     <ClCompile Include="ListaEncadeada.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GerenciadorSistema.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ListaEncadeada.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GerenciadorSistema.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

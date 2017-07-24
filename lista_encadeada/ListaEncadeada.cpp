@@ -121,6 +121,28 @@ bool ListaEncadeada::del(int indice){
 }
 
 
+bool ListaEncadeada::isEmpty(){
+   if(size == 0){
+      return true;    
+   } 
+   else{
+      return false;
+   }
+}
+bool ListaEncadeada::set(int indice, int valor){
+	if(size == 0){
+		return false;
+	}
+	Elemento * escolhido= pegarElemento(indice);
+	if(escolhido != NULL){
+		escolhido->setValor(valor);
+		return true;
+	}
+	return false;
+
+}
+
+
 void ListaEncadeada::forAll(){
 	if(size == 0){
 		std::cout << "[]" << std::endl;
@@ -157,7 +179,7 @@ void ListaEncadeada::forAllEnd(){
 		std::cout << log << std::endl;
 	}
 }
-
+     
 
 void ListaEncadeada::sort(){
    if(size > 0){
@@ -178,33 +200,16 @@ void ListaEncadeada::sort(){
             proximo= proximo->getProximo();
          }
       }
-   }else{
-      std::cout << "A lista está vazia" << std::endl;
    }
-
 }
 void ListaEncadeada::con(ListaEncadeada &novaLista){
-   if(novaLista.getSize() != 0){
+   if(!novaLista.isEmpty()){
       for(int i = 0; i < novaLista.getSize(); i ++){
          this->add(novaLista.get(i));
       }
-   }else{
-      std::cout << "Lista enviada está vazia" << std::endl;
    }
 }
 
-bool ListaEncadeada::set(int indice, int valor){
-	if(size == 0){
-		return false;
-	}
-	Elemento * escolhido= pegarElemento(indice);
-	if(escolhido != NULL){
-		escolhido->setValor(valor);
-		return true;
-	}
-	return false;
-
-}
 
 int ListaEncadeada::getSize(){
    return size;
