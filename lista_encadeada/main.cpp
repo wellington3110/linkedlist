@@ -2,12 +2,13 @@
 #include"ListaEncadeada.h"
 #include <stdlib.h>
 #include <string>
+#include <locale.h>
 
 using namespace std;
 
-enum primeiroMenu{LISTA1 = 1, LISTA2, EXIBIR_COMANDOS, LIMPAR_TELA=90, SAIR= 99};
 enum menuLista{ADD = 1, ADD_POS, DEL_POS, DEL_INI, DEL_FIM, LISTA_PELO_INICIO, LISTA_PELO_FIM,
    ORDENA, CONCATENA, LIMPA_LISTA};
+enum primeiroMenu{LISTA1 = 1, LISTA2, EXIBIR_COMANDOS, LIMPAR_TELA=90, SAIR= 99};
 
 void iniciarPrograma();
 void finalizarPrograma();
@@ -20,21 +21,20 @@ void escolherOpcaoPrimeiroMenu(int & opcao);
 
 int main()
 {     
+   setlocale(LC_ALL, "Portuguese");
    system("tasklist /fi \"IMAGENAME eq lista_encadeada.exe\"");
    iniciarPrograma();
    system("tasklist /fi \"IMAGENAME eq lista_encadeada.exe\"");
 }
 
-
 void iniciarPrograma(){
-
-
 
    ListaEncadeada * lista1= new ListaEncadeada();
    ListaEncadeada * lista2= new ListaEncadeada();
       
    ListaEncadeada escolhida;
    ListaEncadeada naoEscolhida;
+   string listaEscolhida;
 
    int opcao= 0;
 
@@ -46,13 +46,16 @@ void iniciarPrograma(){
          if(opcao == LISTA1){
             escolhida= *lista1;
             naoEscolhida= *lista2;
+            listaEscolhida = "Lista 1";
 
          }else{
             escolhida= *lista2;
             naoEscolhida= *lista1;
+            listaEscolhida = "Lista 2";
          }
 
          do{
+            cout << listaEscolhida<<"   Numero de elementos: " << escolhida.getSize() << endl;
             carregarMensagemSegundoMenu();
             escolherOpcaoSegundoMenu(opcao, escolhida, naoEscolhida);
          }while(opcao != SAIR);
@@ -126,16 +129,17 @@ void escolherOpcaoSegundoMenu(int & opcao, ListaEncadeada & escolhida, ListaEnca
    int indice= 0;
    int valor= 0;
    string mensagem;
-
    cout << "Opção: ";
    cin >> opcao;
+   cout << endl << endl;
+
       switch(opcao){
 
       case ADD:
          cout << "Valor do elemento: ";
          cin >> valor;
          escolhida.add(valor) ? mensagem="Elemento adicionado" : mensagem="Erro ao adicionar";
-         cout << endl << endl;
+         cout << mensagem << endl << endl;
          break;
 
       case ADD_POS:
@@ -144,24 +148,25 @@ void escolherOpcaoSegundoMenu(int & opcao, ListaEncadeada & escolhida, ListaEnca
          cout << "Valor do elemento: ";
          cin >> valor;
          escolhida.add(indice, valor) ? mensagem="Elemento adicionado" : mensagem="Erro ao adicionar";
-         cout << endl << endl;
+         cout << mensagem << endl << endl;
          break;
 
       case DEL_POS:
+         
          cout << "Posição: ";
          cin >> indice;
          escolhida.del(indice) ? mensagem="Elemento removido" : mensagem="Erro ao remover";
-         cout << endl << endl;
+         cout << mensagem << endl << endl;
          break;
 
       case DEL_INI:
          escolhida.delFirst() ? mensagem="Elemento removido" : mensagem="Erro ao remover";
-         cout << endl << endl;
+         cout << mensagem << endl << endl;
          break;
 
       case DEL_FIM:
          escolhida.delLast() ? mensagem="Elemento removido" : mensagem="Erro ao remover";
-         cout << endl << endl;
+         cout << mensagem << endl << endl;
          break;
 
       case LISTA_PELO_INICIO:
@@ -173,10 +178,13 @@ void escolherOpcaoSegundoMenu(int & opcao, ListaEncadeada & escolhida, ListaEnca
          escolhida.forAllEnd();
          cout << endl << endl;
          break;
+      
+      case ORDENA:
+         escolhida.sort();
+         break;
 
       case CONCATENA:
          escolhida.sort();
-         cout << "Ordenamento realizado" << endl << endl;
          break;
 
       case LIMPA_LISTA:
