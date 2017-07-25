@@ -3,36 +3,39 @@
 #include <sstream>
 
 //////////////////////////////////////////////////////////////
-ListaEncadeada::~ListaEncadeada(void){
+ListaEncadeada::~ListaEncadeada()
+{
    this->delAll();
 }
-ListaEncadeada::ListaEncadeada(void) : size(0), primeiro(NULL),ultimo(NULL)
+ListaEncadeada::ListaEncadeada() : size(0), primeiro(NULL),ultimo(NULL)
 {
 }
 //////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////////////////////////////
-bool ListaEncadeada::add(int valor){
+bool ListaEncadeada::add(int valor)
+{
    if (size == 0) {
       primeiro= ultimo= new Elemento(valor, NULL, NULL);
       size++;
       return true;
-}
+   }
       return addLast(valor);
 }
-bool ListaEncadeada::addLast(int valor){
-   Elemento *novo= new Elemento(valor, ultimo, NULL);
+bool ListaEncadeada::addLast(int valor)
+{
+   Elemento* novo= new Elemento(valor, ultimo, NULL);
    ultimo->setProximo(novo);
    ultimo= novo;
    size ++;
    return true;
 }
-bool ListaEncadeada::addFirst(int valor){
-   Elemento * novo= new Elemento(valor, NULL, primeiro);
+bool ListaEncadeada::addFirst(int valor)
+{
+   Elemento* novo= new Elemento(valor, NULL, primeiro);
    primeiro->setAnterior(novo);
    primeiro= novo;
-   size ++;
+   size++;
    return true;
 }
 bool ListaEncadeada::add(int indice, int valor){
@@ -58,90 +61,92 @@ bool ListaEncadeada::add(int indice, int valor){
 }
 //////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////////////////////////////
-bool ListaEncadeada::delAll(){
-   if(size != 0){
-      Elemento * atual = primeiro->getProximo();
-      Elemento * proximo;
+bool ListaEncadeada::delAll()
+{
+   if (size != 0) {
+      Elemento* atual= primeiro->getProximo();
+      Elemento* proximo;
       delete primeiro;
-      for(int i = 0; i < (size-1); i++){
-         proximo = atual->getProximo();
+      for (int i = 0; i < (size-1); i++) {
+         proximo= atual->getProximo();
          delete atual;
-         atual = proximo;
+         atual= proximo;
       }
-      size = 0;
+      size= 0;
       return true;
-   }else{
+   }
+   else
       return false;
    }
-}
-bool ListaEncadeada::delLast(){
-   if(size > 0){
-	   Elemento * escolhido= ultimo;
+bool ListaEncadeada::delLast()
+{
+   if (size > 0) {
+	   Elemento* escolhido= ultimo;
 	   ultimo= escolhido->getAnterior();
 	   ultimo->setProximo(NULL);
 	   delete escolhido;
 	   escolhido= NULL;
-	   size --;
+	   size--;
 	   return true;
-   }else{
-      return false;
    }
+   else
+      return false;   
 }
-bool ListaEncadeada::delFirst(){
-   if(size > 0){
-	   Elemento * escolhido= primeiro;
+bool ListaEncadeada::delFirst()
+{
+   if (size > 0) {
+	   Elemento* escolhido= primeiro;
 	   primeiro= escolhido->getProximo();
 	   primeiro->setAnterior(NULL);
 	   delete escolhido;
 	   escolhido= NULL;
-	   size --;
+	   size--;
 	   return true;
-   }else{
-      return false;
    }
+   else
+      return false;
 }
-bool ListaEncadeada::del(int indice){
-   if(size == 0){
+bool ListaEncadeada::del(int indice)
+{
+   if (size == 0) {
 		return false;
 	}
-	if(indice == 0){
+	if (indice == 0) {
 		return delFirst();	
 	}
-	if(indice == (size-1)){
+	if ( indice == (size-1) ) {
 		return delLast();
 	}
-	Elemento * escolhido = pegarElemento(indice);
-	if(escolhido != NULL)
-	{
+	Elemento* escolhido = pegarElemento(indice);
+	if (escolhido != NULL) {
 		escolhido->getAnterior()->setProximo(escolhido->getProximo());
 		escolhido->getProximo()->setAnterior(escolhido->getAnterior());
 		delete escolhido;
 		escolhido= NULL;
-		size --;
+		size--;
 		return true;
 	}
 	return false;
 }
 //////////////////////////////////////////////////////////////
 
-
-bool ListaEncadeada::isEmpty(){
-   if(size == 0){
+bool ListaEncadeada::isEmpty()
+{
+   if (size == 0) {
       return true;    
    } 
-   else{
-      return false;
-   }
+   else
+      return false; 
 }
 
-bool ListaEncadeada::set(int indice, int valor){
-	if(size == 0){
+bool ListaEncadeada::set(int indice, int valor)
+{
+	if (size == 0) {
 		return false;
 	}
-	Elemento * escolhido= pegarElemento(indice);
-	if(escolhido != NULL){
+	Elemento* escolhido= pegarElemento(indice);
+	if (escolhido != NULL) {
 		escolhido->setValor(valor);
 		return true;
 	}
@@ -149,16 +154,17 @@ bool ListaEncadeada::set(int indice, int valor){
 
 }
 
-
-void ListaEncadeada::forAll(){
-	if(size == 0){
+void ListaEncadeada::forAll()
+{
+	if (size == 0) {
 		std::cout << "[]" << std::endl;
-	}else{
+	} 
+   else {
 		std::ostringstream linha;
 		linha << "[";
 		linha << primeiro->getValor();
-		Elemento *proximo= primeiro->getProximo();
-		for(int i = 0; i < (size-1); i++){	
+		Elemento* proximo= primeiro->getProximo();
+		for ( int i = 0; i < (size-1); i++ ) {	
 			linha << ", ";
 			linha << proximo->getValor(); 
 			proximo= proximo->getProximo();
@@ -168,15 +174,17 @@ void ListaEncadeada::forAll(){
 		std::cout << log << std::endl;
 	}
 }
-void ListaEncadeada::forAllEnd(){
-	if(size == 0){
+void ListaEncadeada::forAllEnd()
+{
+	if (size == 0) {
 		std::cout << "[]" << std::endl;
-	}else{
+	} 
+   else {
 		std::ostringstream linha;
 		linha << "[";
 		linha << ultimo->getValor();
-		Elemento *anterior= ultimo->getAnterior();
-		for(int i = (size-1); 0 < i; i--){	
+		Elemento* anterior= ultimo->getAnterior();
+		for ( int i = (size-1); 0 < i; i-- ) {	
 			linha << ", ";
 			linha << anterior->getValor(); 
 			anterior= anterior->getAnterior();
@@ -187,17 +195,18 @@ void ListaEncadeada::forAllEnd(){
 	}
 }
     
-void ListaEncadeada::sort(){
-   if(size > 0){
+void ListaEncadeada::sort()
+{
+   if (size > 0) {
       int maior= 0;
-      Elemento * proximo = primeiro ->getProximo();
-      Elemento * atual = primeiro;
+      Elemento* proximo = primeiro ->getProximo();
+      Elemento* atual = primeiro;
       for (int i= 0; i < (size-1); i++){
-         if(i != 0){
+         if (i != 0) {
             atual= atual->getProximo();; 
             proximo = atual->getProximo();
          }
-         for(int y= i+1 ;y < (size); y++){      
+         for ( int y= i+1 ;y < (size); y++ ) {      
             if(atual->getValor() > proximo->getValor()){
                maior= atual->getValor();
                atual->setValor(proximo->getValor());
@@ -209,38 +218,41 @@ void ListaEncadeada::sort(){
    }
 }
 
-void ListaEncadeada::con(ListaEncadeada &novaLista){
-   if(!novaLista.isEmpty()){
-      for(int i = 0; i < novaLista.getSize(); i ++){
+void ListaEncadeada::con(ListaEncadeada &novaLista)
+{
+   if (!novaLista.isEmpty()) {
+      for (int i = 0; i < novaLista.getSize(); i ++) {
          this->add(novaLista.get(i));
       }
    }
 }
 
-int ListaEncadeada::getSize(){
+int ListaEncadeada::getSize()
+{
    return size;
 }
-int ListaEncadeada::get(int indice){
-	Elemento * escolhido = pegarElemento(indice);
-	if(escolhido != NULL){
+int ListaEncadeada::get(int indice)
+{
+	Elemento* escolhido= pegarElemento(indice);
+	if (escolhido != NULL) {
 		return escolhido ->getValor();
 	}
 	return -1;
 }
 
-Elemento * ListaEncadeada::pegarElemento(int indice){
-	if(size > indice){
-		Elemento * escolhido;
-		if((size/2) > indice){	
+Elemento* ListaEncadeada::pegarElemento(int indice)
+{
+	if (size > indice) {
+		Elemento* escolhido;
+		if ( (size/2) > indice ) {	
 			escolhido= primeiro;
-			for(int i= 0; indice > i; i++){
+			for (int i= 0; indice > i; i++) {
 				escolhido= escolhido->getProximo();
 			}
 		}
 		else{
 			escolhido= ultimo;
-			for(int i= size - 1; indice < i; i--)
-			{
+			for (int i= size - 1; indice < i; i--) {
 				escolhido= escolhido->getAnterior();
 			}
 		}
