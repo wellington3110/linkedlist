@@ -1,58 +1,50 @@
 #include "GerenciadorSistema.h"
+#include <iostream>
 
+using namespace std;
 
-GerenciadorSistema::GerenciadorSistema(void)
+void GerenciadorSistema::iniciarPrograma()
 {
-}
 
-
-GerenciadorSistema::~GerenciadorSistema(void)
-{
-}
-
-void GerenciadorSistema::iniciarPrograma(){
-
-   ListaEncadeada * lista1= new ListaEncadeada();
-   ListaEncadeada * lista2= new ListaEncadeada();
+   ListaEncadeada* lista1= new ListaEncadeada();
+   ListaEncadeada* lista2= new ListaEncadeada();
    
    gerarMensagens();
-   ListaEncadeada * escolhida;
-   ListaEncadeada * naoEscolhida;
+   ListaEncadeada* escolhida;
+   ListaEncadeada* naoEscolhida;
    string listaEscolhida;
 
    int opcao= 0;
 
-   do{
-      carregarMensagemPrimeiroMenu();
-      escolherOpcaoPrimeiroMenu(opcao);
-
-      if(opcao == LISTA1 || opcao == LISTA2){
-         if(opcao == LISTA1){
+   do {
+      opcao = selecionarOpcaoPrimeiroMenu();
+      if ((opcao == LISTA1) || (opcao == LISTA2) ) {
+         if (opcao == LISTA1) {
             escolhida= lista1;
             naoEscolhida= lista2;
             listaEscolhida= "Lista 1";
 
-         }else{
+         } else {
             escolhida= lista2;
             naoEscolhida= lista1;
             listaEscolhida= "Lista 2";
          }
 
-         do{
-            cout << listaEscolhida<< mensagens[NUM_ELEMENTOS] << escolhida->getSize() << endl;
-            carregarMensagemSegundoMenu();
-            escolherOpcaoSegundoMenu(opcao, *escolhida, *naoEscolhida);
-         }while(opcao != SAIR);
+         do {
+            cout << listaEscolhida << mensagens[NUM_ELEMENTOS] << escolhida->getSize() << endl;
+            selecionarOpcaoSegundoMenu(*escolhida, *naoEscolhida);
+         } while (opcao != SAIR);
 
          opcao = 0;
       }
-   }while(opcao != SAIR);
+   } while ( opcao != SAIR );
 
    delete lista1;
    delete lista2;
 }
 
-void GerenciadorSistema::gerarMensagens(){
+void GerenciadorSistema::gerarMensagens()
+{
    mensagens[ADICIONADO]= "Elemento adicionado";
    mensagens[N_ADICIONADO]= "Erro ao adicionar";
    mensagens[DELETADO]= "Elemento deletado";
@@ -65,12 +57,16 @@ void GerenciadorSistema::gerarMensagens(){
    mensagens[OPCAO] = "Opção: ";
    mensagens[NUM_ELEMENTOS] = "   Número de elementos: ";
 }
-void GerenciadorSistema::limparBufferDeEntrada(){
+
+void GerenciadorSistema::limparBufferDeEntrada()
+{
    cin.clear();
    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');   
 }
 
-void GerenciadorSistema::carregarMensagemSegundoMenu(){
+///////////////////////////////////////////////////////////////////////
+void GerenciadorSistema::carregarMensagemSegundoMenu()
+{
    cout << "-----------------------------------------------------" << endl;
    cout << "1.  Adicionar elemento" << endl;
    cout << "2.  Adicionar elemento na posição" << endl;
@@ -86,7 +82,8 @@ void GerenciadorSistema::carregarMensagemSegundoMenu(){
    cout << "99. Sair da lista" << endl;
    cout << "-----------------------------------------------------" << endl << endl;;
 }
-void GerenciadorSistema::carregarMensagemPrimeiroMenu(){
+void GerenciadorSistema::carregarMensagemPrimeiroMenu()
+{
    cout << "Selecione a opção desejada:" << endl;
    cout << "-----------------------------------------------------" << endl;
    cout << "1.  Configurar Lista 1" << endl;
@@ -97,161 +94,119 @@ void GerenciadorSistema::carregarMensagemPrimeiroMenu(){
    cout << "-----------------------------------------------------" << endl << endl;;
 }
 
-void GerenciadorSistema::escolherOpcaoPrimeiroMenu(int & opcao){
+int GerenciadorSistema::selecionarOpcaoPrimeiroMenu()
+{
+   int opcao;
+   carregarMensagemPrimeiroMenu();
    cout << mensagens[OPCAO];
    cin >> opcao;
-   if(validarEntrada()){
+   if (validarEntrada()) {
       cout <<endl;
-      switch(opcao){
-         case LISTA1:
-            break;
-
-         case LISTA2:
-            break;
-
-         case EXIBIR_COMANDOS:
-            carregarMensagemSegundoMenu();
-            break;
-
-         case LIMPAR_TELA:
-            system("cls");
-            break;
-
-         case SAIR:
-            break;
-
-         default:
-            cout << mensagens[VALOR_INVALIDO] << endl;
-            break;
+      switch (opcao) {
+         case LISTA1: case LISTA2: case SAIR: break;
+         case EXIBIR_COMANDOS: carregarMensagemSegundoMenu(); break;
+         case LIMPAR_TELA: system("cls"); break;
+         default: cout << mensagens[VALOR_INVALIDO] << endl; break;
       }
       limparBufferDeEntrada();
    }
+   return opcao;
 }
-void GerenciadorSistema::escolherOpcaoSegundoMenu(int & opcao, ListaEncadeada & escolhida, ListaEncadeada & naoEscolhida){
-   
+void GerenciadorSistema::selecionarOpcaoSegundoMenu(ListaEncadeada & escolhida, ListaEncadeada & naoEscolhida)
+{
    int indice= 0;
    int valor= 0;
+   int opcao= 0;
    string log;
+   carregarMensagemSegundoMenu();
    cout << mensagens[OPCAO];
    cin >> opcao;
-   if(validarEntrada()){
+   if (validarEntrada()) {
       cout << endl;
-
-         switch(opcao){
-
+         switch(opcao) {
          case ADD:
-            if(validarEntrada(valor)){
-               escolhida.add(valor) ? log= mensagens[ADICIONADO] : log= mensagens[N_ADICIONADO];
+            if ( validarEntrada(valor) ) {
+               log=escolhida.add(valor) ?  mensagens[ADICIONADO] : mensagens[N_ADICIONADO];
                cout << log << endl << endl;
             }
-            break;
-
+         break;
          case ADD_POS:
-            if(validarEntrada(indice, valor, opcao)){
-               escolhida.add(indice, valor) ? log= mensagens[ADICIONADO] : log= mensagens[N_ADICIONADO];
+            if (validarEntrada(indice, valor, opcao)) {
+               log=escolhida.add(indice, valor) ?  mensagens[ADICIONADO] : mensagens[N_ADICIONADO];
                cout << log << endl << endl;
             }
-            break;
-
+         break;
          case DEL_POS:
-            if(!escolhida.isEmpty()){
-               if(validarEntrada(indice, valor, opcao)){
-                  escolhida.del(indice) ? log= mensagens[DELETADO] : log= mensagens[N_DELETADO];
+            if( !escolhida.isEmpty() ) {
+               if (validarEntrada(indice, valor, opcao)) {
+                  log= escolhida.del(indice) ?  mensagens[DELETADO] : mensagens[N_DELETADO];
                   cout << log << endl << endl;
                }
-            } else {
-               cout << mensagens[LISTA_VAZIA] << endl << endl;
             }
-            break;
-
+            else
+               cout << mensagens[LISTA_VAZIA] << endl << endl;
+         break;
          case DEL_INI:
-            if(!escolhida.isEmpty()){
-               escolhida.delFirst() ? log= mensagens[DELETADO] : log= mensagens[N_DELETADO];
+            if (!escolhida.isEmpty()) {
+               log= escolhida.delFirst() ?  mensagens[DELETADO] : mensagens[N_DELETADO];
                cout << log << endl << endl;
-            } else {
-               cout << mensagens[LISTA_VAZIA] << endl << endl;
             }
-            break;
-
+            else
+               cout << mensagens[LISTA_VAZIA] << endl << endl;
+         break;
          case DEL_FIM:
-            if(!escolhida.isEmpty()){
-               escolhida.delLast() ? log= mensagens[DELETADO] : log= mensagens[N_DELETADO];
+            if (!escolhida.isEmpty()) {
+               log= escolhida.delLast() ?  mensagens[DELETADO] : mensagens[N_DELETADO];
                cout << log << endl;
-            } else {
-               cout << mensagens[LISTA_VAZIA] << endl << endl;
             }
-            break;
-
-         case LISTA_PELO_INICIO:
-            escolhida.forAll();
-            cout << endl;
-            break;
-
-         case LISTA_PELO_FIM:
-            escolhida.forAllEnd();
-            cout << endl;
-            break;
-      
-         case ORDENA:
-            escolhida.sort();
-            escolhida.forAll();
-            cout << endl;
-            break;
-
-         case CONCATENA:
-            escolhida.con(naoEscolhida);
-            escolhida.forAll();
-            cout << endl;
-            break;
-
-         case LIMPA_LISTA:
-            escolhida.delAll();
-            escolhida.forAll();
-            cout << endl;
-            break;
-
-         case LIMPAR_TELA:
-            system("cls");
-            break;
-
-         case SAIR:
-            cout << mensagens[VOLTAR_MPRINCIPAL] << endl << endl;
-            break;
-
-         default:         
-            cout << mensagens[VALOR_INVALIDO] << endl << endl;
-            break;
+            else
+               cout << mensagens[LISTA_VAZIA] << endl << endl;
+         break;
+         case LISTA_PELO_INICIO: escolhida.forAll(); cout << endl; break;
+         case LISTA_PELO_FIM: escolhida.forAllEnd(); cout << endl; break;   
+         case ORDENA: escolhida.sort(); escolhida.forAll(); cout << endl; break;
+         case CONCATENA: escolhida.con(naoEscolhida); escolhida.forAll(); cout << endl; break;
+         case LIMPA_LISTA: escolhida.delAll(); escolhida.forAll(); cout << endl; break;
+         case LIMPAR_TELA: system("cls"); break;
+         case SAIR: cout << mensagens[VOLTAR_MPRINCIPAL] << endl << endl; break;
+         default: cout << mensagens[VALOR_INVALIDO] << endl << endl; break;
       }
          limparBufferDeEntrada();
    }
-}                              
+}
+///////////////////////////////////////////////////////////////////////                     
 
-bool GerenciadorSistema::validarEntrada(){
-   if(cin.fail()){
+
+///////////////////////////////////////////////////////////////////////
+bool GerenciadorSistema::validarEntrada()
+{
+   if (cin.fail()) {
       cout << mensagens[VALOR_INVALIDO] << endl << endl;
       limparBufferDeEntrada();
       return false;
    }
    return true;
 }
-bool GerenciadorSistema::validarEntrada(int & valor){
+bool GerenciadorSistema::validarEntrada(int& valor)
+{
    cout << mensagens[VALOR];
    cin >> valor;
-   if(cin.fail()){
+   if (cin.fail()) {
       cout << mensagens[VALOR_INVALIDO] << endl << endl;
       return false;
    }
    return true;
 }
-bool GerenciadorSistema::validarEntrada(int & indice, int & valor, int & opcao){
+bool GerenciadorSistema::validarEntrada(int& indice, int& valor, int& opcao)
+{
    cout << mensagens[INDICE];
    cin >> indice;
-   if(cin.fail()){
+   if (cin.fail()) {
       cout << mensagens[VALOR_INVALIDO] << endl << endl;
       return false;
-   } else if(opcao == ADD_POS){
+   } else if (opcao == ADD_POS) {
       return validarEntrada(valor);
    }
 }
-
+///////////////////////////////////////////////////////////////////////
 

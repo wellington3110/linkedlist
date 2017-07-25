@@ -1,15 +1,18 @@
 #include "ListaEncadeada.h"
+#include <iostream>
+#include <sstream>
 
+//////////////////////////////////////////////////////////////
 ListaEncadeada::~ListaEncadeada(void){
    this->delAll();
 }
-
 ListaEncadeada::ListaEncadeada(void) : size(0), primeiro(NULL),ultimo(NULL)
 {
 }
+//////////////////////////////////////////////////////////////
 
 
-
+//////////////////////////////////////////////////////////////
 bool ListaEncadeada::add(int valor){
    if (size == 0) {
       primeiro= ultimo= new Elemento(valor, NULL, NULL);
@@ -53,8 +56,10 @@ bool ListaEncadeada::add(int indice, int valor){
    }
       return false;
 }
+//////////////////////////////////////////////////////////////
 
 
+//////////////////////////////////////////////////////////////
 bool ListaEncadeada::delAll(){
    if(size != 0){
       Elemento * atual = primeiro->getProximo();
@@ -119,6 +124,7 @@ bool ListaEncadeada::del(int indice){
 	}
 	return false;
 }
+//////////////////////////////////////////////////////////////
 
 
 bool ListaEncadeada::isEmpty(){
@@ -129,6 +135,7 @@ bool ListaEncadeada::isEmpty(){
       return false;
    }
 }
+
 bool ListaEncadeada::set(int indice, int valor){
 	if(size == 0){
 		return false;
@@ -179,8 +186,7 @@ void ListaEncadeada::forAllEnd(){
 		std::cout << log << std::endl;
 	}
 }
-     
-
+    
 void ListaEncadeada::sort(){
    if(size > 0){
       int maior= 0;
@@ -202,6 +208,7 @@ void ListaEncadeada::sort(){
       }
    }
 }
+
 void ListaEncadeada::con(ListaEncadeada &novaLista){
    if(!novaLista.isEmpty()){
       for(int i = 0; i < novaLista.getSize(); i ++){
@@ -209,7 +216,6 @@ void ListaEncadeada::con(ListaEncadeada &novaLista){
       }
    }
 }
-
 
 int ListaEncadeada::getSize(){
    return size;
@@ -242,6 +248,9 @@ Elemento * ListaEncadeada::pegarElemento(int indice){
 	}
 	return NULL;
 }
+
+
+
 
 
 
