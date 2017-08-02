@@ -1,29 +1,27 @@
 #include "Elemento.h"
 
-Elemento::~Elemento(void)
-{}
-Elemento::Elemento(int valor, Elemento * anterior, Elemento * proximo)
+Elemento::Elemento(int valor, Elemento* anterior, Elemento* proximo)
 	: valor(valor), anterior(anterior), proximo(proximo)
 {}
 
 int Elemento::getValor(){
 	return valor;
 }
-Elemento * Elemento::getProximo(){
+Elemento* Elemento::getProximo(){
 	return proximo;
 }
-Elemento * Elemento::getAnterior(){
+Elemento* Elemento::getAnterior(){
 	return anterior;
 }
 
-void Elemento::setValor(int valor){
-	this->valor= valor;
+void Elemento::setValor(int _valor){
+	valor= _valor;
 }
-void Elemento::setProximo(Elemento *elemento){
-	this->proximo= elemento;
+void Elemento::setProximo(Elemento* _elemento){
+	proximo= _elemento;
 }
-void Elemento::setAnterior(Elemento * elemento){
-	this->anterior= elemento;
+void Elemento::setAnterior(Elemento* _elemento){
+	anterior= _elemento;
 }
 
 

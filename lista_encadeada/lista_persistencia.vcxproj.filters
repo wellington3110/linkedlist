@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{4c502d4f-d9e6-4f4b-85dd-4e863dd05370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Message">
+      <UniqueIdentifier>{44d37bba-305f-41e2-8b13-a5a8557aa961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{5a1a5211-9c1e-42b3-a16e-115c0285143f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{a0f63087-d1cb-428a-a08d-54bae2b0bdca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{5cfe9fef-a9f0-40ff-b99e-e92c2dca0236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{2465d2c6-2c12-42ea-b606-02dee4c3509d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{f960cfb2-2a50-492a-a78b-7d6bd674d23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Headers">
+      <UniqueIdentifier>{2efa8e4d-1bc7-4913-9a0d-66a85d33ac91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Cpp">
+      <UniqueIdentifier>{cae3ac21-da80-4209-b5c0-e8ff47ac68a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\BaseClass">
+      <UniqueIdentifier>{2b6c3655-2d67-4b34-acc3-ce334dc401f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SystemMessage.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleInterface.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Elemento.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInterface.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="InputControl.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdAddPos.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdAdd.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdInterface.h">
+      <Filter>Command\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdDel.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdCon.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdDelAll.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdDelBeg.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdDelLast.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdForAll.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdForAllEnd.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdSort.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SystemMessage.cpp">
+      <Filter>Message</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleInterface.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Elemento.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="InputControl.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdAdd.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdAddPos.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdDel.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdCon.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdDelAll.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdDelBeg.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdDelLast.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdForAll.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdForAllEnd.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdSort.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
