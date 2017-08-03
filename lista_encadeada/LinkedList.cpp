@@ -1,7 +1,6 @@
 #include "LinkedList.h"
-#include <sstream>
-#include <iostream>
 #include "Elemento.h"
+
 
 ////////////////////metodos de inserção de elemento////////////
 bool LinkedList::add(int value)
@@ -198,45 +197,43 @@ bool LinkedList::set(int pos, int value)
 
 }
 
-void LinkedList::forAll()
+std::string LinkedList::forAll()
 {
-	if (size == 0) {
-		std::cout << "[]" << std::endl;
+   std::string log;
+   if (size == 0) {
+	   return log= "[]\n";
 	} 
-   else {
-		std::ostringstream linha;
-		linha << "[";
-		linha << primeiro->getValor();
-		Elemento* proximo= primeiro->getProximo();
-		for ( int i = 0; i < (size-1); i++ ) {	
-			linha << ", ";
-			linha << proximo->getValor(); 
-			proximo= proximo->getProximo();
-		}
-      linha << "]";
-		std::string log= linha.str();
-		std::cout << log << std::endl;
+	std::ostringstream linha;
+	linha << "[";
+	linha << primeiro->getValor();
+	Elemento* proximo= primeiro->getProximo();
+	for ( int i = 0; i < (size-1); i++ ) {	
+		linha << ", ";
+		linha << proximo->getValor(); 
+		proximo= proximo->getProximo();
 	}
+   linha << "]\n";
+	log= linha.str();	
+   return log;
 }
-void LinkedList::forAllEnd()
+std::string LinkedList::forAllEnd()
 {
-	if (size == 0) {
-		std::cout << "[]" << std::endl;
+   std::string log;
+   if (size == 0) {
+	   return log= "[]\n";
 	} 
-   else {
-		std::ostringstream linha;
-		linha << "[";
-		linha << ultimo->getValor();
-		Elemento* anterior= ultimo->getAnterior();
-		for ( int i = (size-1); 0 < i; i-- ) {	
-			linha << ", ";
-			linha << anterior->getValor(); 
-			anterior= anterior->getAnterior();
-		}
-      linha << "]";
-		std::string log= linha.str();
-		std::cout << log << std::endl;
+	std::ostringstream linha;
+	linha << "[";
+	linha << ultimo->getValor();
+	Elemento* anterior= ultimo->getAnterior();
+	for ( int i = (size-1); 0 < i; i-- )  {	
+		linha << ", ";
+		linha << anterior->getValor(); 
+		anterior= anterior->getAnterior();
 	}
+   linha << "]\n";
+	log= linha.str();	
+   return log;
 }
 
 Elemento* LinkedList::pegarElemento(int pos)

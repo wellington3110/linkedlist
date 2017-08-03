@@ -14,7 +14,6 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="CmdAdd.h" />
     <ClInclude Include="CmdAddPos.h" />
-    <ClInclude Include="CmdClearList.h" />
     <ClInclude Include="CmdCon.h" />
     <ClInclude Include="CmdDel.h" />
     <ClInclude Include="CmdDelAll.h" />
@@ -40,7 +39,6 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="CmdAdd.cpp" />
     <ClCompile Include="CmdAddPos.cpp" />
-    <ClCompile Include="CmdClearList.cpp" />
     <ClCompile Include="CmdCon.cpp" />
     <ClCompile Include="CmdDel.cpp" />
     <ClCompile Include="CmdDelAll.cpp" />

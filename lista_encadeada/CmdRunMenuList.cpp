@@ -1,7 +1,6 @@
 #include "CmdRunMenuList.h"
 #include "CmdAdd.h"
 #include "CmdAddPos.h"
-#include "CmdClearList.h"
 #include "CmdCon.h"
 #include "CmdDel.h"
 #include "CmdDelAll.h"
@@ -39,7 +38,7 @@ bool CmdRunMenuList::cmdExecute(int menuOption, Data& d, UserInterface& ui)
       case OptionEnum::FOR_ALL_END: cActual= new CmdForAllEnd(); break;
       case OptionEnum::SORT: cActual= new CmdSort(); break;
       case OptionEnum::CON: cActual= new CmdCon(); break;
-      case OptionEnum::CLEAR_LIST: cActual= new CmdClearList(); break;
+      case OptionEnum::CLEAR_LIST: cActual= new CmdDelAll(); break;
       case OptionEnum::CLS: ui.clearDisplay(); cActual= new CmdIdle(); break;
       case OptionEnum::EXIT: ui.showMessage(MessageEnum::BACK_MAINMENU); break;
       default:

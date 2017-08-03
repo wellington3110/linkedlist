@@ -1,6 +1,7 @@
 #pragma once
 #ifndef INCLUDED_LINKEDLIST_H
 #define INCLUDED_LINKEDLIST_H
+#include <sstream>
 
 class Elemento;
 
@@ -26,8 +27,8 @@ public:
    int getSize();
    int get(int pos);  
 
-   void forAll();
-   void forAllEnd();
+   std::string forAll();
+   std::string forAllEnd();
 
 private:
    int size;

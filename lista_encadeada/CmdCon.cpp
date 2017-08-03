@@ -3,11 +3,6 @@
 
 void CmdCon::execute(Data& d, UserInterface& ui)
 {
-   if (d.getChosenList().con( d.getNotChosenList() ) ) {
-      d.getChosenList().forAll();
-      ui.showMessage(MessageEnum::ENDL);
-   }
-   else  
-      ui.showMessage(MessageEnum::N_CON);
+   ( d.getChosenList().con(d.getNotChosenList()) ? ui.showMessage(d.getChosenList().forAll()) : ui.showMessage(MessageEnum::N_CON) ); 
 };
 

@@ -19,13 +19,14 @@ public:
 
    void clearDisplay();
    void showMessage(int m);
+   void showMessage(std::string m);
 
 private:
    SystemMessage* message;
 
    int optionListMenu;
    int optionMainMenu;
-   int insertOption(int& option);
+   bool doInput(int& input, int m);
 
    void showChosenList();
 };

@@ -3,8 +3,7 @@
 
 void CmdDelAll::execute(Data& d, UserInterface& ui)
 {
-   d.getChosenList().delAll();
-   d.getChosenList().forAll();
+   ( d.getChosenList().delAll() ? ui.showMessage(d.getChosenList().forAll()) : ui.showMessage(MessageEnum::EMPTY_LIST) );
 };
 
 

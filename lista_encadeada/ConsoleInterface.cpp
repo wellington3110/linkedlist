@@ -4,7 +4,6 @@
 #include "OptionEnum.h"
 #include "MessageEnum.h"
 #include <iostream>
-#include <string>
 
 ConsoleInterface::~ConsoleInterface()
 {
@@ -28,21 +27,21 @@ void ConsoleInterface::showChosenList()
 int ConsoleInterface::getMainMenuOption()
 {
    displayMainMenu();
-   return insertOption(optionMainMenu);
+   return (doInput(optionMainMenu, MessageEnum::OPTION) ? optionMainMenu : -1);
 }
 int ConsoleInterface::getListMenuOption()
 {
    showChosenList();
    displayListMenu();
-   return insertOption(optionListMenu);
+   return (doInput(optionListMenu, MessageEnum::OPTION) ? optionListMenu : -1);
 }
-int ConsoleInterface::insertOption(int& option)
+bool ConsoleInterface::doInput(int& input, int m)
 {
-   showMessage(MessageEnum::OPTION);
-   if (InputControl::validateInput(option) ) {
-      return option;      
+   showMessage(m);
+   if (InputControl::validateInput(input) ) {
+      return true;      
    }
-   return -1;
+   return false;
 }
 ///////////////////////////////////////////////////////////
 
@@ -81,6 +80,10 @@ void ConsoleInterface::displayListMenu()
 void ConsoleInterface::showMessage(int m)
 {
    std::cout << message->getMessage(m);
+}
+void ConsoleInterface::showMessage(std::string m)
+{
+   std::cout << m << std::endl;
 }
 
 

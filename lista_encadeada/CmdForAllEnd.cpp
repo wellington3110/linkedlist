@@ -3,8 +3,7 @@
 
 void CmdForAllEnd::execute(Data& d, UserInterface& ui)
 {
-   d.getChosenList().forAllEnd();
-   ui.showMessage(MessageEnum::ENDL);
+   ui.showMessage(d.getChosenList().forAllEnd());
 };
 
 
