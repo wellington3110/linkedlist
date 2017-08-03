@@ -7,5 +7,6 @@ CmdAdd::CmdAdd()
 {
 }
 
-
+void CmdAdd::execute(Data& d, UserInterface& ui)
+{};
 

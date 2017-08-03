@@ -10,10 +10,14 @@ public:
    Data();
    ~Data();
 
-   LinkedList& getList();
+   LinkedList& getList1();
+   LinkedList& getList2();
+   void setChosen(LinkedList& list);
 
 private:
-   LinkedList* list;
+   LinkedList* list1;
+   LinkedList* list2;
+   LinkedList* chosenList;
 };
 
 #endif

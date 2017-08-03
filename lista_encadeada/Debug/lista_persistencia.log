@@ -1,29 +1,36 @@
-﻿Build started 02/08/2017 14:25:14.
-     1>Project "C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\lista_persistencia.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 02/08/2017 19:28:08.
+     1>Project "C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\lista_persistencia.lastbuildstate".
+       InitializeBuildStatus:
          Touching "Debug\lista_persistencia.unsuccessfulbuild".
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleInterface.cpp main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt App.cpp CmdAdd.cpp CmdAddPos.cpp CmdCon.cpp CmdDel.cpp CmdDelAll.cpp CmdDelBeg.cpp CmdDelLast.cpp CmdForAll.cpp CmdForAllEnd.cpp CmdRunMenuList.cpp CmdSort.cpp ConsoleInterface.cpp Elemento.cpp InputControl.cpp LinkedList.cpp main.cpp Data.cpp SystemMessage.cpp
+         SystemMessage.cpp
+         Data.cpp
          main.cpp
-     1>c:\users\wellington.macedo\desktop\wellington\projetos\listacompersistencia\lista_persistencia2.0\main.cpp(6): warning C4101: 'c' : unreferenced local variable
+     1>c:\users\welli\wellington\projetos\linkedlist\lista_encadeada\main.cpp(6): warning C4101: 'c' : unreferenced local variable
+         LinkedList.cpp
+         InputControl.cpp
+         Elemento.cpp
          ConsoleInterface.cpp
+         CmdSort.cpp
+         CmdRunMenuList.cpp
+         CmdForAllEnd.cpp
+         CmdForAll.cpp
+         CmdDelLast.cpp
+         CmdDelBeg.cpp
+         CmdDelAll.cpp
+         CmdDel.cpp
+         CmdCon.cpp
+         CmdAddPos.cpp
+         CmdAdd.cpp
+         App.cpp
          Generating Code...
-       Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\Debug\lista_persistencia.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lista_persistencia.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\Debug\lista_persistencia.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\Debug\lista_persistencia.lib" /MACHINE:X86 Debug\App.obj
-         Debug\ConsoleInterface.obj
-         Debug\Elemento.obj
-         Debug\InputControl.obj
-         Debug\LinkedList.obj
-         Debug\main.obj
-         Debug\Data.obj
-         Debug\SystemMessage.obj
-         LINK : C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\Debug\lista_persistencia.exe not found or not built by the last incremental link; performing full link
-     1>ConsoleInterface.obj : error LNK2019: unresolved external symbol "public: virtual __thiscall UserInterface::~UserInterface(void)" (??1UserInterface@@UAE@XZ) referenced in function "public: virtual __thiscall ConsoleInterface::~ConsoleInterface(void)" (??1ConsoleInterface@@UAE@XZ)
-     1>ConsoleInterface.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall ConsoleInterface::getMainMenu(void)const " (?getMainMenu@ConsoleInterface@@UBEHXZ)
-     1>ConsoleInterface.obj : error LNK2001: unresolved external symbol "public: virtual int __thiscall ConsoleInterface::getListMenu(void)const " (?getListMenu@ConsoleInterface@@UBEHXZ)
-     1>C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\Debug\lista_persistencia.exe : fatal error LNK1120: 3 unresolved externals
-     1>Done Building Project "C:\Users\wellington.macedo\Desktop\Wellington\Projetos\ListaComPersistencia\lista_persistencia2.0\lista_persistencia.vcxproj" (build target(s)) -- FAILED.
+     1>c:\users\welli\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(42): error C4716: 'ConsoleInterface::getMainMenu' : must return a value
+     1>c:\users\welli\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(44): error C4716: 'ConsoleInterface::getListMenu' : must return a value
+     1>Done Building Project "C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" (rebuild target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:00.81
+Time Elapsed 00:00:09.55

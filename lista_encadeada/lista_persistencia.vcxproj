@@ -22,6 +22,7 @@
     <ClInclude Include="CmdForAll.h" />
     <ClInclude Include="CmdForAllEnd.h" />
     <ClInclude Include="CmdInterface.h" />
+    <ClInclude Include="CmdRunMenuList.h" />
     <ClInclude Include="CmdSort.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="Elemento.h" />
@@ -42,6 +43,7 @@
     <ClCompile Include="CmdDelLast.cpp" />
     <ClCompile Include="CmdForAll.cpp" />
     <ClCompile Include="CmdForAllEnd.cpp" />
+    <ClCompile Include="CmdRunMenuList.cpp" />
     <ClCompile Include="CmdSort.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />
     <ClCompile Include="Elemento.cpp" />

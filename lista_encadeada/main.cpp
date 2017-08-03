@@ -3,7 +3,7 @@
 
 int main()
 {
-   CmdInterface c;
+   CmdInterface* c;
    
    return 0;
 }

@@ -1,11 +1,14 @@
 #pragma once
 #ifndef INCLUDED_CMDDELLAST_H
 #define INCLUDED_CMDDELLAST_H
-class CmdDelLast
+#include "CmdInterface.h"
+
+class CmdDelLast : public CmdInterface 
 {
 public:
    ~CmdDelLast();
    CmdDelLast();
+   void execute(Data& d, UserInterface& ui);
 };
 #endif
 

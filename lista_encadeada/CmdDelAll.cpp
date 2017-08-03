@@ -7,5 +7,8 @@ CmdDelAll::CmdDelAll()
 {
 }
 
+void CmdDelAll::execute(Data& d, UserInterface& ui)
+{};
+
 
 

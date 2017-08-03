@@ -7,5 +7,8 @@ CmdForAllEnd::CmdForAllEnd()
 {
 }
 
+void CmdForAllEnd::execute(Data& d, UserInterface& ui)
+{};
+
 
 

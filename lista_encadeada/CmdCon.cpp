@@ -7,5 +7,6 @@ CmdCon::CmdCon()
 {
 }
 
-
+void CmdCon::execute(Data& d, UserInterface& ui)
+{};
 

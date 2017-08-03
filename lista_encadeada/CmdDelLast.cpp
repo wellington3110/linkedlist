@@ -7,5 +7,8 @@ CmdDelLast::CmdDelLast()
 {
 }
 
+void CmdDelLast::execute(Data& d, UserInterface& ui)
+{};
+
 
 

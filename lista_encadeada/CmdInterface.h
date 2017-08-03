@@ -8,7 +8,8 @@
 class CmdInterface
 {
 public:
-   void execute(Data& d, UserInterface& ui);
+   virtual ~CmdInterface();
+   virtual void execute(Data& d, UserInterface& ui)= 0;
 };
 
 #endif

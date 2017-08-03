@@ -7,5 +7,8 @@ CmdAddPos::CmdAddPos()
 {
 }
 
+void CmdAddPos::execute(Data& d, UserInterface& ui)
+{};
+
 
 

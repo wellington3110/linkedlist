@@ -94,6 +94,9 @@
     <ClInclude Include="CmdSort.h">
       <Filter>Command\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="CmdRunMenuList.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SystemMessage.cpp">
@@ -148,6 +151,9 @@
       <Filter>Command\Cpp</Filter>
     </ClCompile>
     <ClCompile Include="CmdSort.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdRunMenuList.cpp">
       <Filter>Command\Cpp</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,5 +7,8 @@ CmdForAll::CmdForAll()
 {
 }
 
+void CmdForAll::execute(Data& d, UserInterface& ui)
+{};
+
 
 

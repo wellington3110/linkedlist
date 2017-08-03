@@ -7,5 +7,8 @@ CmdSort::CmdSort()
 {
 }
 
+void CmdSort::execute(Data& d, UserInterface& ui)
+{};
+
 
 
