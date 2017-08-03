@@ -14,6 +14,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="CmdAdd.h" />
     <ClInclude Include="CmdAddPos.h" />
+    <ClInclude Include="CmdClearList.h" />
     <ClInclude Include="CmdCon.h" />
     <ClInclude Include="CmdDel.h" />
     <ClInclude Include="CmdDelAll.h" />
@@ -21,14 +22,17 @@
     <ClInclude Include="CmdDelLast.h" />
     <ClInclude Include="CmdForAll.h" />
     <ClInclude Include="CmdForAllEnd.h" />
+    <ClInclude Include="CmdIdle.h" />
     <ClInclude Include="CmdInterface.h" />
     <ClInclude Include="CmdRunMenuList.h" />
     <ClInclude Include="CmdSort.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="Elemento.h" />
+    <ClInclude Include="MessageEnum.h" />
     <ClInclude Include="InputControl.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="OptionEnum.h" />
     <ClInclude Include="SystemMessage.h" />
     <ClInclude Include="UserInterface.h" />
   </ItemGroup>
@@ -36,6 +40,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="CmdAdd.cpp" />
     <ClCompile Include="CmdAddPos.cpp" />
+    <ClCompile Include="CmdClearList.cpp" />
     <ClCompile Include="CmdCon.cpp" />
     <ClCompile Include="CmdDel.cpp" />
     <ClCompile Include="CmdDelAll.cpp" />
@@ -43,6 +48,7 @@
     <ClCompile Include="CmdDelLast.cpp" />
     <ClCompile Include="CmdForAll.cpp" />
     <ClCompile Include="CmdForAllEnd.cpp" />
+    <ClCompile Include="CmdIdle.cpp" />
     <ClCompile Include="CmdRunMenuList.cpp" />
     <ClCompile Include="CmdSort.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />

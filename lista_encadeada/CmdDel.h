@@ -6,8 +6,8 @@
 class CmdDel : public CmdInterface 
 {
 public:
-   ~CmdDel();
-   CmdDel();
+   ~CmdDel(){};
+   CmdDel(){};
    void execute(Data& d, UserInterface& ui);
 };
 

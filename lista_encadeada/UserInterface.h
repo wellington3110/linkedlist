@@ -1,19 +1,18 @@
 #pragma once
-#ifndef USERINTERFACE_H
-#define USERINTERFACE_H
-
-#include<string>
+#ifndef INCLUDED_USERINTERFACE_H
+#define INCLUDED_USERINTERFACE_H
 
 class UserInterface
 {
 public:
-   virtual ~UserInterface();
+   virtual ~UserInterface(){};
 
-   virtual void displayMainMenu() const = 0;
-   virtual void displayListMenu() const = 0;
-   virtual int getMainMenu() const = 0;
-   virtual int getListMenu() const = 0;
-   virtual std::string getMessage(int m) const = 0;
+   virtual void displayMainMenu()= 0;
+   virtual void displayListMenu()= 0;
+   virtual int getMainMenuOption()= 0;
+   virtual int getListMenuOption()= 0;
+   virtual void showMessage(int m)= 0;
+   virtual void clearDisplay()= 0;
 };
 
 #endif USERINTERFACE_H

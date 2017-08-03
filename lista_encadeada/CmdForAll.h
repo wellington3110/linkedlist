@@ -6,8 +6,8 @@
 class CmdForAll : public CmdInterface 
 {
 public:
-   ~CmdForAll();
-   CmdForAll();
+   ~CmdForAll(){};
+   CmdForAll(){};
    void execute(Data& d, UserInterface& ui);
 };
 #endif

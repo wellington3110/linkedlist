@@ -6,8 +6,8 @@
 class CmdAddPos : public CmdInterface 
 {
 public:
-   ~CmdAddPos();
-   CmdAddPos();
+   ~CmdAddPos(){};
+   CmdAddPos(){};
    void execute(Data& d, UserInterface& ui);
    
 };

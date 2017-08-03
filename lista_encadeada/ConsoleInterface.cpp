@@ -1,15 +1,56 @@
 #include "ConsoleInterface.h"
 #include "SystemMessage.h"
+#include "InputControl.h"
+#include "OptionEnum.h"
+#include "MessageEnum.h"
 #include <iostream>
+#include <string>
 
 ConsoleInterface::~ConsoleInterface()
 {
+   delete message;
 }
 ConsoleInterface::ConsoleInterface()
 {
+   message= new SystemMessage();   
 }
 
-void ConsoleInterface::displayMainMenu() const
+///////////////////////////////////////////////////////////
+void ConsoleInterface::showChosenList()
+{
+   if (optionMainMenu == OptionEnum::LIST1)
+   {
+      std::cout << "Lista 1" << std::endl;
+   }
+   else
+      std::cout << "Lista 2" << std::endl;
+}
+int ConsoleInterface::getMainMenuOption()
+{
+   displayMainMenu();
+   return insertOption(optionMainMenu);
+}
+int ConsoleInterface::getListMenuOption()
+{
+   showChosenList();
+   displayListMenu();
+   return insertOption(optionListMenu);
+}
+int ConsoleInterface::insertOption(int& option)
+{
+   showMessage(MessageEnum::OPTION);
+   if (InputControl::validateInput(option) ) {
+      return option;      
+   }
+   return -1;
+}
+///////////////////////////////////////////////////////////
+
+void ConsoleInterface::clearDisplay()
+{
+   std::system("cls");
+}
+void ConsoleInterface::displayMainMenu()
 {
    std::cout << "Selecione a opção desejada:" << std::endl
    << "-----------------------------------------------------" << std::endl
@@ -20,7 +61,7 @@ void ConsoleInterface::displayMainMenu() const
    << "99. Sair" << std::endl
    << "-----------------------------------------------------" << std::endl << std::endl;
 };
-void ConsoleInterface::displayListMenu() const
+void ConsoleInterface::displayListMenu()
 {
    std::cout << "-----------------------------------------------------" << std::endl
    << "1.  Adicionar elemento" << std::endl
@@ -37,16 +78,11 @@ void ConsoleInterface::displayListMenu() const
    << "99. Sair da lista" << std::endl
    << "-----------------------------------------------------" << std::endl << std::endl;
 };
-
-int ConsoleInterface::getMainMenu() const
-{}
-int ConsoleInterface::getListMenu() const
-{}
-
-std::string ConsoleInterface::getMessage(int m) const
+void ConsoleInterface::showMessage(int m)
 {
-   return message->getMessage(m);
+   std::cout << message->getMessage(m);
 }
+
 
 
 

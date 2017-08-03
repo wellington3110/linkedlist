@@ -1,13 +1,6 @@
 #include "InputControl.h"
 #include <iostream>
 
-InputControl::~InputControl()
-{
-}
-InputControl::InputControl()
-{
-}
-
 void InputControl::clearBuffer()
 {
    std::cin.clear();

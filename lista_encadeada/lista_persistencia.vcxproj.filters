@@ -35,6 +35,9 @@
     <Filter Include="Command\BaseClass">
       <UniqueIdentifier>{2b6c3655-2d67-4b34-acc3-ce334dc401f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\ListFiles">
+      <UniqueIdentifier>{b46cc3b6-166a-4911-8604-7d8c171a674f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SystemMessage.h">
@@ -42,12 +45,6 @@
     </ClInclude>
     <ClInclude Include="ConsoleInterface.h">
       <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="Elemento.h">
-      <Filter>Data</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkedList.h">
-      <Filter>Data</Filter>
     </ClInclude>
     <ClInclude Include="UserInterface.h">
       <Filter>View</Filter>
@@ -97,6 +94,24 @@
     <ClInclude Include="CmdRunMenuList.h">
       <Filter>Command\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="CmdClearList.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdIdle.h">
+      <Filter>Command\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Data\ListFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Elemento.h">
+      <Filter>Data\ListFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageEnum.h">
+      <Filter>Message</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionEnum.h">
+      <Filter>View</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SystemMessage.cpp">
@@ -107,12 +122,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Elemento.cpp">
-      <Filter>Data</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkedList.cpp">
-      <Filter>Data</Filter>
     </ClCompile>
     <ClCompile Include="Data.cpp">
       <Filter>Data</Filter>
@@ -155,6 +164,18 @@
     </ClCompile>
     <ClCompile Include="CmdRunMenuList.cpp">
       <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdClearList.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdIdle.cpp">
+      <Filter>Command\Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Data\ListFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Elemento.cpp">
+      <Filter>Data\ListFiles</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

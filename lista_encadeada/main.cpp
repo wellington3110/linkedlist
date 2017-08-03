@@ -1,9 +1,10 @@
 #include <locale.h>
-#include "CmdInterface.h"
+#include "App.h"
 
 int main()
 {
-   CmdInterface* c;
-   
+   setlocale(LC_ALL, "Portuguese");
+   App a;
+   a.run();
    return 0;
 }

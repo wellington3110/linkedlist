@@ -1,6 +1,6 @@
 #pragma once
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef INCLUDED_LINKEDLIST_H
+#define INCLUDED_LINKEDLIST_H
 
 class Elemento;
 
@@ -18,19 +18,16 @@ public:
    bool delFirst();
    bool del(int pos);
 
+   bool sort();
+   bool isEmpty();
+   bool con(LinkedList &outra);
    bool set(int pos, int value);
 
-   bool isEmpty();
-   
    int getSize();
    int get(int pos);  
 
    void forAll();
    void forAllEnd();
-
-   bool sort();
-
-   bool con(LinkedList &outra);
 
 private:
    int size;
@@ -45,5 +42,5 @@ private:
 
    Elemento* pegarElemento(int pos); 
 };
-#endif LINKEDLIST_H
+#endif
 

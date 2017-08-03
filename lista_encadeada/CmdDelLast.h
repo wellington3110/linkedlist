@@ -6,8 +6,8 @@
 class CmdDelLast : public CmdInterface 
 {
 public:
-   ~CmdDelLast();
-   CmdDelLast();
+   ~CmdDelLast(){};
+   CmdDelLast(){};
    void execute(Data& d, UserInterface& ui);
 };
 #endif

@@ -1,4 +1,5 @@
 #include "Data.h"
+#include "OptionEnum.h"
 
 Data::~Data()
 {
@@ -9,20 +10,19 @@ Data::Data()
 {
    list1= new LinkedList();
    list2= new LinkedList();
+   chosenList= list1;
+   nChosenList= list2;
 }
 
-LinkedList& Data::getList1()
+void Data::setChosenList(int optionList)
 {
-   return *list1;
-}
-LinkedList& Data::getList2()
-{
-   return *list2;
-}
-
-void Data::setChosen(LinkedList& list)
-{
-   chosenList= &list;   
+   if(optionList == OptionEnum::LIST1) {
+      chosenList= list1;
+      nChosenList= list2;
+   } else {
+      chosenList= list2;
+      nChosenList= list1;   
+   }
 }
 
 

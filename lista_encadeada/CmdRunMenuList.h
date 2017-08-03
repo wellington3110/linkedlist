@@ -6,9 +6,14 @@
 class CmdRunMenuList : public CmdInterface 
 {
 public:  
-   ~CmdRunMenuList();
-   CmdRunMenuList();
+   ~CmdRunMenuList(){};
+   CmdRunMenuList(){cActual= nullptr;};
    void execute(Data& d, UserInterface& ui);
+
+private:
+   CmdInterface* cActual;
+
+   bool cmdExecute(int menuOption, Data& d, UserInterface& ui);
 };
 #endif
 

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CONSOLEINTERFACE_H
-#define CONSOLEINTERFACE_H
+#ifndef INCLUDED_CONSOLEINTERFACE_H
+#define INCLUDED_CONSOLEINTERFACE_H
 
 #include "UserInterface.h"
 class SystemMessage;
@@ -11,14 +11,23 @@ public:
    ~ConsoleInterface();
    ConsoleInterface();
 
-   void displayMainMenu() const;
-   void displayListMenu() const;
-   int getMainMenu() const;
-   int getListMenu() const;
-   std::string getMessage(int m) const;
+   void displayMainMenu();
+   void displayListMenu();
+
+   int getMainMenuOption();
+   int getListMenuOption();
+
+   void clearDisplay();
+   void showMessage(int m);
 
 private:
    SystemMessage* message;
+
+   int optionListMenu;
+   int optionMainMenu;
+   int insertOption(int& option);
+
+   void showChosenList();
 };
 
 #endif

@@ -10,14 +10,16 @@ public:
    Data();
    ~Data();
 
-   LinkedList& getList1();
-   LinkedList& getList2();
-   void setChosen(LinkedList& list);
+   void setChosenList(int optionList);
+
+   LinkedList& getChosenList()const {return *chosenList;};
+   LinkedList& getNotChosenList()const {return *nChosenList;};
 
 private:
    LinkedList* list1;
    LinkedList* list2;
    LinkedList* chosenList;
+   LinkedList* nChosenList;
 };
 
 #endif

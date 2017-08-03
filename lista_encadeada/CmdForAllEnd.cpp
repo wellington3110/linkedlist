@@ -1,14 +1,11 @@
 #include "CmdForAllEnd.h"
-
-CmdForAllEnd::~CmdForAllEnd()
-{
-}
-CmdForAllEnd::CmdForAllEnd()
-{
-}
+#include "MessageEnum.h"
 
 void CmdForAllEnd::execute(Data& d, UserInterface& ui)
-{};
+{
+   d.getChosenList().forAllEnd();
+   ui.showMessage(MessageEnum::ENDL);
+};
 
 
 

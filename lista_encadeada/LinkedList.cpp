@@ -142,30 +142,9 @@ int LinkedList::get(int pos)
 	return -1;
 }
 
-bool LinkedList::isEmpty()
-{
-   if (size == 0) {
-      return true;    
-   } 
-   else
-      return false; 
-}
-
-bool LinkedList::set(int pos, int value)
-{  //implementar metodo update para o set
-	Elemento* escolhido= pegarElemento(pos);
-	if (escolhido != NULL) {
-		escolhido->setValor(value);
-      listaOrdenada= false;
-		return true;
-	}
-	return false;
-
-}
-
 bool LinkedList::sort()
 {
-   if ( (size > 0) || (listaOrdenada == false) ) {
+   if ( (size > 0) && (listaOrdenada == false) ) {
       int maior= 0;
       Elemento* proximo= primeiro ->getProximo();
       Elemento* atual= primeiro;
@@ -188,6 +167,37 @@ bool LinkedList::sort()
    }
    return false;
 }
+bool LinkedList::isEmpty()
+{
+   if (size == 0) {
+      return true;    
+   } 
+   else
+      return false; 
+}
+bool LinkedList::con(LinkedList &outra)
+{
+   if (!outra.isEmpty()) {
+      for (int i= 0; i < outra.getSize(); i ++) {
+         add(outra.get(i));
+      }
+      listaOrdenada= false;
+      return true;
+   }
+   return false;
+}
+bool LinkedList::set(int pos, int value)
+{  //implementar metodo update para o set
+	Elemento* escolhido= pegarElemento(pos);
+	if (escolhido != NULL) {
+		escolhido->setValor(value);
+      listaOrdenada= false;
+		return true;
+	}
+	return false;
+
+}
+
 void LinkedList::forAll()
 {
 	if (size == 0) {
@@ -227,17 +237,6 @@ void LinkedList::forAllEnd()
 		std::string log= linha.str();
 		std::cout << log << std::endl;
 	}
-}
-bool LinkedList::con(LinkedList &outra)
-{
-   if (!outra.isEmpty()) {
-      for (int i= 0; i < outra.getSize(); i ++) {
-         add(outra.get(i));
-      }
-      listaOrdenada= false;
-      return true;
-   }
-   return false;
 }
 
 Elemento* LinkedList::pegarElemento(int pos)

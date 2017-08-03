@@ -6,8 +6,8 @@
 class CmdDelBeg : public CmdInterface 
 {
 public:
-   ~CmdDelBeg();
-   CmdDelBeg();
+   ~CmdDelBeg(){};
+   CmdDelBeg(){};
    void execute(Data& d, UserInterface& ui);
 };
 #endif
