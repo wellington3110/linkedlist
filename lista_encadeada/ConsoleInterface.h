@@ -2,33 +2,41 @@
 #ifndef INCLUDED_CONSOLEINTERFACE_H
 #define INCLUDED_CONSOLEINTERFACE_H
 
+#include <vector>
 #include "UserInterface.h"
-class SystemMessage;
+#include <iostream>
 
 class ConsoleInterface : public UserInterface
 {
+   struct MyMenuItem {
+      int valueOption;
+      TextMessage::TxtOptionsId valueEnum;
+
+      MyMenuItem(int _valueOption,TextMessage::TxtOptionsId _valueEnum)
+         : valueOption(_valueOption), valueEnum(_valueEnum) {}
+   };
+
 public:
    ~ConsoleInterface();
    ConsoleInterface();
 
+   void clearDisplay();
    void displayMainMenu();
    void displayListMenu();
+   void showMessage(std::string m) { std::cout << m << std::endl; };
+   void showMessage(TextMessage::TxtMessageId mId) { std::cout << messageControl->getTextForMessage(mId);};
 
    int getMainMenuOption();
    int getListMenuOption();
-
-   void clearDisplay();
-   void showMessage(int m);
-   void showMessage(std::string m);
+   bool doInput(int& input, TextMessage::TxtMessageId m);
 
 private:
-   SystemMessage* message;
+   TextMessage* messageControl;
+   std::vector<MyMenuItem> mainMenu;
+   std::vector<MyMenuItem> listMenu;
 
    int optionListMenu;
    int optionMainMenu;
-   bool doInput(int& input, int m);
-
-   void showChosenList();
 };
 
 #endif

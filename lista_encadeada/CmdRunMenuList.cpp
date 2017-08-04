@@ -9,14 +9,12 @@
 #include "CmdForAll.h"
 #include "CmdForAllEnd.h"
 #include "CmdSort.h"
-#include "MessageEnum.h"
 #include "CmdIdle.h"
-#include "OptionEnum.h"
 
 void CmdRunMenuList::execute(Data& d, UserInterface& ui)
 {
    bool keep;
-   ui.showMessage(MessageEnum::ENDL);
+   ui.showMessage(TextMessage::ENDL);
    do {
       keep= cmdExecute(ui.getListMenuOption(), d, ui);
    } while (keep);
@@ -29,21 +27,21 @@ bool CmdRunMenuList::cmdExecute(int menuOption, Data& d, UserInterface& ui)
    cActual= nullptr;
 
    switch (menuOption) {
-      case OptionEnum::ADD: cActual= new CmdAdd(); break;
-      case OptionEnum::ADD_POS: cActual= new CmdAddPos(); break;
-      case OptionEnum::DEL_POS: cActual= new CmdDel(); break;
-      case OptionEnum::DEL_BEG: cActual= new CmdDelBeg(); break;
-      case OptionEnum::DEL_LAST: cActual= new CmdDelLast(); break;
-      case OptionEnum::FOR_ALL: cActual= new CmdForAll(); break;
-      case OptionEnum::FOR_ALL_END: cActual= new CmdForAllEnd(); break;
-      case OptionEnum::SORT: cActual= new CmdSort(); break;
-      case OptionEnum::CON: cActual= new CmdCon(); break;
-      case OptionEnum::CLEAR_LIST: cActual= new CmdDelAll(); break;
-      case OptionEnum::CLS: ui.clearDisplay(); cActual= new CmdIdle(); break;
-      case OptionEnum::EXIT: ui.showMessage(MessageEnum::BACK_MAINMENU); break;
+      case TextMessage::OPT_ADD: cActual= new CmdAdd(); break;
+      case TextMessage::ADD_POS: cActual= new CmdAddPos(); break;
+      case TextMessage::DEL_POS: cActual= new CmdDel(); break;
+      case TextMessage::DEL_BEG: cActual= new CmdDelBeg(); break;
+      case TextMessage::DEL_LAST: cActual= new CmdDelLast(); break;
+      case TextMessage::FOR_ALL: cActual= new CmdForAll(); break;
+      case TextMessage::FOR_ALL_END: cActual= new CmdForAllEnd(); break;
+      case TextMessage::SORT: cActual= new CmdSort(); break;
+      case TextMessage::CON: cActual= new CmdCon(); break;
+      case TextMessage::CLEAR_LIST: cActual= new CmdDelAll(); break;
+      case TextMessage::CLS: ui.clearDisplay(); cActual= new CmdIdle(); break;
+      case TextMessage::EXIT: ui.showMessage(TextMessage::BACK_MAINMENU); break;
       default:
          cActual= new CmdIdle();
-         ui.showMessage(MessageEnum::INVALID_VALUE); 
+         ui.showMessage(TextMessage::INVALID_VALUE); 
    }
 
    if (cActual)

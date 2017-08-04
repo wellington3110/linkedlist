@@ -1,14 +1,14 @@
 #include "CmdDelBeg.h"
-#include "MessageEnum.h"
 
 void CmdDelBeg::execute(Data& d, UserInterface& ui)
 {
-   if ( !d.getChosenList().isEmpty() ) {
-      ( d.getChosenList().delFirst() ? ui.showMessage(MessageEnum::DEL) : ui.showMessage(MessageEnum::N_DEL) );   
-   } else {
-      ui.showMessage(MessageEnum::EMPTY_LIST);
-   }
-};
+   TextMessage::TxtMessageId statusMsg= TextMessage::EMPTY_LIST;
+
+   if ( !d.getChosenList().isEmpty() )
+      statusMsg= d.getChosenList().delFirst() ? TextMessage::DEL : TextMessage::N_DEL;
+      
+   ui.showMessage(TextMessage::EMPTY_LIST);
+}
 
 
 

@@ -27,12 +27,10 @@
     <ClInclude Include="CmdSort.h" />
     <ClInclude Include="ConsoleInterface.h" />
     <ClInclude Include="Elemento.h" />
-    <ClInclude Include="MessageEnum.h" />
     <ClInclude Include="InputControl.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Data.h" />
-    <ClInclude Include="OptionEnum.h" />
-    <ClInclude Include="SystemMessage.h" />
+    <ClInclude Include="TextMessage.h" />
     <ClInclude Include="UserInterface.h" />
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +44,6 @@
     <ClCompile Include="CmdDelLast.cpp" />
     <ClCompile Include="CmdForAll.cpp" />
     <ClCompile Include="CmdForAllEnd.cpp" />
-    <ClCompile Include="CmdIdle.cpp" />
     <ClCompile Include="CmdRunMenuList.cpp" />
     <ClCompile Include="CmdSort.cpp" />
     <ClCompile Include="ConsoleInterface.cpp" />
@@ -55,7 +52,7 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Data.cpp" />
-    <ClCompile Include="SystemMessage.cpp" />
+    <ClCompile Include="TextMessage.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9BACAE49-AA2D-4902-B886-1C0D85EA1B7D}</ProjectGuid>

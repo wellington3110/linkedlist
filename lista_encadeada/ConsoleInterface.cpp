@@ -1,90 +1,88 @@
 #include "ConsoleInterface.h"
-#include "SystemMessage.h"
 #include "InputControl.h"
-#include "OptionEnum.h"
-#include "MessageEnum.h"
-#include <iostream>
 
 ConsoleInterface::~ConsoleInterface()
 {
-   delete message;
-}
-ConsoleInterface::ConsoleInterface()
-{
-   message= new SystemMessage();   
+   delete messageControl;
 }
 
-///////////////////////////////////////////////////////////
-void ConsoleInterface::showChosenList()
+ConsoleInterface::ConsoleInterface()
 {
-   if (optionMainMenu == OptionEnum::LIST1)
-   {
-      std::cout << "Lista 1" << std::endl;
-   }
-   else
-      std::cout << "Lista 2" << std::endl;
+   messageControl= new TextMessage();   
+
+   listMenu.push_back(MyMenuItem(89,TextMessage::DOTTED_LINE));
+   listMenu.push_back(MyMenuItem(1,TextMessage::OPT_ADD));
+   listMenu.push_back(MyMenuItem(2,TextMessage::ADD_POS));
+   listMenu.push_back(MyMenuItem(3,TextMessage::DEL_POS));
+   listMenu.push_back(MyMenuItem(4,TextMessage::DEL_BEG));
+   listMenu.push_back(MyMenuItem(5,TextMessage::DEL_LAST));
+   listMenu.push_back(MyMenuItem(6,TextMessage::FOR_ALL));
+   listMenu.push_back(MyMenuItem(7,TextMessage::FOR_ALL_END));
+   listMenu.push_back(MyMenuItem(8,TextMessage::SORT));
+   listMenu.push_back(MyMenuItem(9,TextMessage::CON));
+   listMenu.push_back(MyMenuItem(10,TextMessage::CLEAR_LIST));
+   listMenu.push_back(MyMenuItem(90,TextMessage::CLS));
+   listMenu.push_back(MyMenuItem(99,TextMessage::EXIT));
+   listMenu.push_back(MyMenuItem(89,TextMessage::DOTTED_LINE));
+   
+   mainMenu.push_back(MyMenuItem(0,TextMessage::TITLE));
+   mainMenu.push_back(MyMenuItem(89,TextMessage::DOTTED_LINE));
+   mainMenu.push_back(MyMenuItem(11,TextMessage::LIST1));
+   mainMenu.push_back(MyMenuItem(12,TextMessage::LIST2));
+   mainMenu.push_back(MyMenuItem(13,TextMessage::SHOW_LISTMENU));
+   mainMenu.push_back(MyMenuItem(90,TextMessage::CLS));
+   mainMenu.push_back(MyMenuItem(99,TextMessage::EXIT));
+   mainMenu.push_back(MyMenuItem(89,TextMessage::DOTTED_LINE));
 }
+
+/////////////////////////////////////////////////////////
+
 int ConsoleInterface::getMainMenuOption()
 {
    displayMainMenu();
-   return (doInput(optionMainMenu, MessageEnum::OPTION) ? optionMainMenu : -1);
+   return doInput(optionMainMenu, TextMessage::OPTION) ? optionMainMenu : -1;
 }
+
 int ConsoleInterface::getListMenuOption()
 {
-   showChosenList();
    displayListMenu();
-   return (doInput(optionListMenu, MessageEnum::OPTION) ? optionListMenu : -1);
+   return doInput(optionListMenu, TextMessage::OPTION) ? optionListMenu : -1;
 }
-bool ConsoleInterface::doInput(int& input, int m)
+
+bool ConsoleInterface::doInput(int& input, TextMessage::TxtMessageId m)
 {
    showMessage(m);
-   if (InputControl::validateInput(input) ) {
+   if (InputControl::validateInput(input)) 
       return true;      
-   }
    return false;
 }
-///////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
 
 void ConsoleInterface::clearDisplay()
 {
    std::system("cls");
 }
+
 void ConsoleInterface::displayMainMenu()
 {
-   std::cout << "Selecione a opção desejada:" << std::endl
-   << "-----------------------------------------------------" << std::endl
-   << "1.  Configurar Lista 1" << std::endl
-   << "2.  Configurar Lista 2" << std::endl
-   << "3.  Exibir operações disponíveis" << std::endl
-   << "90. Limpar tela" << std::endl
-   << "99. Sair" << std::endl
-   << "-----------------------------------------------------" << std::endl << std::endl;
-};
+   for (int i= 0; i < mainMenu.size(); i++) {
+      std::cout << messageControl->getTextForOptions(mainMenu[i].valueEnum);
+   }
+}
+
 void ConsoleInterface::displayListMenu()
 {
-   std::cout << "-----------------------------------------------------" << std::endl
-   << "1.  Adicionar elemento" << std::endl
-   << "2.  Adicionar elemento na posição" << std::endl
-   << "3.  Deletar elemento na posição" << std::endl
-   << "4.  Deletar primeiro elemento" << std::endl
-   << "5.  Deletar último elemento" << std::endl
-   << "6.  Listar elementos a partir do inicio da lista" << std::endl
-   << "7.  Listar elementos a partir do fim da lista" << std::endl
-   << "8.  Ordernar lista" << std::endl
-   << "9.  Concatenar Listas" << std::endl
-   << "10. Limpar lista" << std::endl
-   << "90. Limpar tela" << std::endl
-   << "99. Sair da lista" << std::endl
-   << "-----------------------------------------------------" << std::endl << std::endl;
-};
-void ConsoleInterface::showMessage(int m)
-{
-   std::cout << message->getMessage(m);
+   if (optionMainMenu == TextMessage::LIST1)
+       std::cout << messageControl->getTextForOptions(TextMessage::CHOSEN_LIST1);
+   else
+       std::cout << messageControl->getTextForOptions(TextMessage::CHOSEN_LIST2);
+
+   for (int i= 0; i < listMenu.size(); i++) {
+      std::cout << messageControl->getTextForOptions(listMenu[i].valueEnum);
+   }
 }
-void ConsoleInterface::showMessage(std::string m)
-{
-   std::cout << m << std::endl;
-}
+
 
 
 

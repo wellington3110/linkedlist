@@ -1,5 +1,5 @@
 #include "Data.h"
-#include "OptionEnum.h"
+#include "TextMessage.h"
 
 Data::~Data()
 {
@@ -16,7 +16,7 @@ Data::Data()
 
 void Data::setChosenList(int optionList)
 {
-   if(optionList == OptionEnum::LIST1) {
+   if(optionList == TextMessage::LIST1) {
       chosenList= list1;
       nChosenList= list2;
    } else {

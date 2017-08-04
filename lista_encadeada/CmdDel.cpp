@@ -1,15 +1,15 @@
 #include "CmdDel.h"
-#include "MessageEnum.h"
 
 void CmdDel::execute(Data& d, UserInterface& ui)
 {
    int pos= 0;
-   if (ui.doInput(pos, MessageEnum::POS)) {
-      ( d.getChosenList().del(pos) ? ui.showMessage(MessageEnum::DEL) : ui.showMessage(MessageEnum::N_DEL) );
-   }
-   else
-      ui.showMessage(MessageEnum::INVALID_VALUE);
-};
+   TextMessage::TxtMessageId statusMsg= TextMessage::INVALID_VALUE;
+   
+   if (ui.doInput(pos, TextMessage::POS))
+      statusMsg= d.getChosenList().del(pos) ? TextMessage::DEL : TextMessage::N_DEL;
+   
+   ui.showMessage(statusMsg);
+}
 
 
 
