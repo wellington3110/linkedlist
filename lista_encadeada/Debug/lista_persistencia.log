@@ -1,14 +1,31 @@
-﻿Build started 04/08/2017 15:59:02.
-     1>Project "C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" on node 2 (build target(s)).
+﻿Build started 05/08/2017 18:41:04.
+     1>Project "C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\lista_persistencia.unsuccessfulbuild".
+         Creating "Debug\lista_persistencia.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleInterface.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt App.cpp CmdAdd.cpp CmdAddPos.cpp CmdCon.cpp CmdDel.cpp CmdDelAll.cpp CmdDelBeg.cpp CmdDelLast.cpp CmdForAll.cpp CmdForAllEnd.cpp CmdRunMenuList.cpp CmdSort.cpp ConsoleInterface.cpp InputControl.cpp
+         InputControl.cpp
+         CmdRunMenuList.cpp
+         CmdCon.cpp
+         Generating Code...
+         Compiling...
          ConsoleInterface.cpp
-     1>c:\users\wellington.macedo\desktop\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(69): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\wellington.macedo\desktop\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(81): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\welli\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(69): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\welli\wellington\projetos\linkedlist\lista_encadeada\consoleinterface.cpp(81): warning C4018: '<' : signed/unsigned mismatch
+         CmdSort.cpp
+         CmdForAllEnd.cpp
+         CmdForAll.cpp
+         CmdDelLast.cpp
+         CmdDelBeg.cpp
+         CmdDelAll.cpp
+         CmdDel.cpp
+         CmdAddPos.cpp
+         App.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         CmdAdd.cpp
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lista_persistencia.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.lib" /MACHINE:X86 Debug\App.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\lista_persistencia.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.lib" /MACHINE:X86 Debug\App.obj
          Debug\CmdAdd.obj
          Debug\CmdAddPos.obj
          Debug\CmdCon.obj
@@ -27,15 +44,15 @@
          Debug\main.obj
          Debug\Data.obj
          Debug\TextMessage.obj
-         LINK : C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe not found or not built by the last incremental link; performing full link
-         lista_persistencia.vcxproj -> C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe
+         LINK : C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe not found or not built by the last incremental link; performing full link
+         lista_persistencia.vcxproj -> C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe
        Manifest:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe;#1" /manifest Debug\lista_persistencia.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\Debug\lista_persistencia.exe;#1" /manifest Debug\lista_persistencia.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\lista_persistencia.unsuccessfulbuild".
          Touching "Debug\lista_persistencia.lastbuildstate".
-     1>Done Building Project "C:\Users\wellington.macedo\Desktop\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\welli\Wellington\Projetos\LinkedList\lista_encadeada\lista_persistencia.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.94
+Time Elapsed 00:00:08.39

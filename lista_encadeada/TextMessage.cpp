@@ -22,16 +22,16 @@ void TextMessage::createTxtMessages()
 void TextMessage::createTxtOptions()
 {
    ///////////List Menu Options//////////////
-   mapTxtOptions[OPT_ADD     ]= "1.  Adicionar elemento\n";
-   mapTxtOptions[ADD_POS     ]= "2.  Adicionar elemento na posição\n";
-   mapTxtOptions[DEL_POS     ]= "3.  Deletar elemento na posição\n";
-   mapTxtOptions[DEL_BEG     ]= "4.  Deletar primeiro elemento\n";
-   mapTxtOptions[DEL_LAST    ]= "5.  Deletar último elemento\n";
-   mapTxtOptions[FOR_ALL     ]= "6.  Listar elementos a partir do inicio da lista\n";
-   mapTxtOptions[FOR_ALL_END ]= "7.  Listar elementos a partir do fim da lista\n";
-   mapTxtOptions[SORT        ]= "8.  Ordernar lista\n";
-   mapTxtOptions[CON         ]= "9.  Concatenar Listas\n";
-   mapTxtOptions[CLEAR_LIST  ]= "10. Limpar lista\n";
+   mapTxtOptions[OPT_ADD     ]= "11.  Adicionar elemento\n";
+   mapTxtOptions[ADD_POS     ]= "12.  Adicionar elemento na posição\n";
+   mapTxtOptions[DEL_POS     ]= "13.  Deletar elemento na posição\n";
+   mapTxtOptions[DEL_BEG     ]= "14.  Deletar primeiro elemento\n";
+   mapTxtOptions[DEL_LAST    ]= "15.  Deletar último elemento\n";
+   mapTxtOptions[FOR_ALL     ]= "16.  Listar elementos a partir do inicio da lista\n";
+   mapTxtOptions[FOR_ALL_END ]= "17.  Listar elementos a partir do fim da lista\n";
+   mapTxtOptions[SORT        ]= "18.  Ordernar lista\n";
+   mapTxtOptions[CON         ]= "19.  Concatenar Listas\n";
+   mapTxtOptions[CLEAR_LIST  ]= "50. Limpar lista\n";
    mapTxtOptions[CHOSEN_LIST1]= "Lista 1\n";
    mapTxtOptions[CHOSEN_LIST2]= "Lista 2\n";
    //////////////////////////////////////////

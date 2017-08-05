@@ -7,7 +7,7 @@
 class CmdAdd : public CmdInterface
 {
 public:
-   CmdAdd(){};
+   CmdAdd() {};
    void execute(Data& d, UserInterface& ui);
 };
 

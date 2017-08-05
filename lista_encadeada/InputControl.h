@@ -5,8 +5,7 @@
 class InputControl
 {
 public:
-   ~InputControl(){};
-   InputControl(){};
+   InputControl() {};
 
    static void clearBuffer();
    static bool validateInput(int& input);

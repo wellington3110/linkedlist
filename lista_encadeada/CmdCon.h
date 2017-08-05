@@ -6,8 +6,7 @@
 class CmdCon : public CmdInterface 
 {
 public:
-   ~CmdCon(){};
-   CmdCon(){};
+   CmdCon() {};
    void execute(Data& d, UserInterface& ui);
 };
 

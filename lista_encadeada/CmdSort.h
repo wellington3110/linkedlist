@@ -6,8 +6,7 @@
 class CmdSort : public CmdInterface
 {
 public:
-   ~CmdSort(){};
-   CmdSort(){};
+   CmdSort() {};
    void execute(Data& d, UserInterface& ui);
 };
 #endif

@@ -6,8 +6,7 @@
 class CmdIdle : public CmdInterface
 {
 public:
-   ~CmdIdle(){};
-   CmdIdle(){};
+   CmdIdle() {};
    void execute(Data& d, UserInterface& ui) {};
 };
 

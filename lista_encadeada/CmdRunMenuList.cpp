@@ -27,16 +27,16 @@ bool CmdRunMenuList::cmdExecute(int menuOption, Data& d, UserInterface& ui)
    cActual= nullptr;
 
    switch (menuOption) {
-      case TextMessage::OPT_ADD: cActual= new CmdAdd(); break;
-      case TextMessage::ADD_POS: cActual= new CmdAddPos(); break;
-      case TextMessage::DEL_POS: cActual= new CmdDel(); break;
-      case TextMessage::DEL_BEG: cActual= new CmdDelBeg(); break;
-      case TextMessage::DEL_LAST: cActual= new CmdDelLast(); break;
-      case TextMessage::FOR_ALL: cActual= new CmdForAll(); break;
-      case TextMessage::FOR_ALL_END: cActual= new CmdForAllEnd(); break;
-      case TextMessage::SORT: cActual= new CmdSort(); break;
-      case TextMessage::CON: cActual= new CmdCon(); break;
-      case TextMessage::CLEAR_LIST: cActual= new CmdDelAll(); break;
+      case TextMessage::OPT_ADD:                cActual= new CmdAdd(); break;
+      case TextMessage::ADD_POS:                cActual= new CmdAddPos(); break;
+      case TextMessage::DEL_POS:                cActual= new CmdDel(); break;
+      case TextMessage::DEL_BEG:                cActual= new CmdDelBeg(); break;
+      case TextMessage::DEL_LAST:               cActual= new CmdDelLast(); break;
+      case TextMessage::FOR_ALL:                cActual= new CmdForAll(); break;
+      case TextMessage::FOR_ALL_END:            cActual= new CmdForAllEnd(); break;
+      case TextMessage::SORT:                   cActual= new CmdSort(); break;
+      case TextMessage::CON:                    cActual= new CmdCon(); break;
+      case TextMessage::CLEAR_LIST:             cActual= new CmdDelAll(); break;
       case TextMessage::CLS: ui.clearDisplay(); cActual= new CmdIdle(); break;
       case TextMessage::EXIT: ui.showMessage(TextMessage::BACK_MAINMENU); break;
       default:
