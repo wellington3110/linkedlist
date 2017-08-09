@@ -1,0 +1,5 @@
+add_subdirectory(command)
+add_subdirectory(data)
+add_subdirectory(main)
+add_subdirectory(user_interface)
+add_subdirectory(util)
