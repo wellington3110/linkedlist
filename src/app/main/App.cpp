@@ -12,7 +12,7 @@ App::~App()
 
 App::App()
 { 
-   cActual= nullptr;
+
    d= new Data();
    ui= new ConsoleInterface(); 
 }
@@ -27,37 +27,36 @@ void App::run()
 
 bool App::cmdExecute(int menuOption)
 {
-   if (cActual)
-      delete cActual;
-   cActual= nullptr;
-
-   switch (menuOption) {
-      case TextMessage::LIST1: 
-         d->setList1AsChosen();
-         cActual= new CmdRunMenuList();
-      break;
-      case TextMessage::LIST2: 
-         d->setList2AsChosen();
-         cActual= new CmdRunMenuList();
-      break;
-      case TextMessage::SHOW_LISTMENU: 
-         ui->displayListMenu(); 
-         cActual= new CmdIdle();  
-      break;
-      case TextMessage::CLS: 
-         ui->clearDisplay(); 
-         cActual= new CmdIdle();
-      break;
-      case TextMessage::EXIT: break;
-      default:
-         ui->showMessage(TextMessage::INVALID_VALUE);
-         cActual= new CmdIdle();
-   }
-
-   if (cActual)
+   auto cActual= createCmd(menuOption);
+   if(cActual)
       cActual->execute(*d, *ui);
+   bool ok (cActual ? true : false);
+   delete cActual;
+   return ok;
+}
+
+CmdInterface* App::createCmd(int menuOption)
+{
+   switch (menuOption) {
+   case TextMessage::LIST1: 
+      d->setList1AsChosen();
+      return new CmdRunMenuList();
+   case TextMessage::LIST2: 
+      d->setList2AsChosen();
+      return new CmdRunMenuList();
+   case TextMessage::SHOW_LISTMENU: 
+      ui->displayListMenu(); 
+      return new CmdIdle();  
+   case TextMessage::CLS: 
+      ui->clearDisplay(); 
+      return new CmdIdle();
+   case TextMessage::EXIT: break;
+   default:
+      ui->showMessage(TextMessage::INVALID_VALUE);
+      return new CmdIdle();
+   }
    
-   return (cActual ? true : false);
+   return nullptr;
 }
 
 

@@ -20,32 +20,34 @@ void CmdRunMenuList::execute(Data& d, UserInterface& ui)
    } while (keep);
 };
 
-bool CmdRunMenuList::cmdExecute(int menuOption, Data& d, UserInterface& ui)
+CmdInterface* CmdRunMenuList::createCmd(int menuOption, UserInterface& ui)
 {
-   if (cActual)
-      delete cActual;
-   cActual= nullptr;
-
    switch (menuOption) {
-      case TextMessage::OPT_ADD:                cActual= new CmdAdd(); break;
-      case TextMessage::ADD_POS:                cActual= new CmdAddPos(); break;
-      case TextMessage::DEL_POS:                cActual= new CmdDel(); break;
-      case TextMessage::DEL_BEG:                cActual= new CmdDelBeg(); break;
-      case TextMessage::DEL_LAST:               cActual= new CmdDelLast(); break;
-      case TextMessage::FOR_ALL:                cActual= new CmdForAll(); break;
-      case TextMessage::FOR_ALL_END:            cActual= new CmdForAllEnd(); break;
-      case TextMessage::SORT:                   cActual= new CmdSort(); break;
-      case TextMessage::CON:                    cActual= new CmdCon(); break;
-      case TextMessage::CLEAR_LIST:             cActual= new CmdDelAll(); break;
-      case TextMessage::CLS: ui.clearDisplay(); cActual= new CmdIdle(); break;
+      case TextMessage::OPT_ADD:                return new CmdAdd(); 
+      case TextMessage::ADD_POS:                return new CmdAddPos(); 
+      case TextMessage::DEL_POS:                return new CmdDel(); 
+      case TextMessage::DEL_BEG:                return new CmdDelBeg(); 
+      case TextMessage::DEL_LAST:               return new CmdDelLast();
+      case TextMessage::FOR_ALL:                return new CmdForAll(); 
+      case TextMessage::FOR_ALL_END:            return new CmdForAllEnd(); 
+      case TextMessage::SORT:                   return new CmdSort(); 
+      case TextMessage::CON:                    return new CmdCon(); 
+      case TextMessage::CLEAR_LIST:             return new CmdDelAll(); 
+      case TextMessage::CLS: ui.clearDisplay(); return new CmdIdle(); 
       case TextMessage::EXIT: ui.showMessage(TextMessage::BACK_MAINMENU); break;
       default:
          cActual= new CmdIdle();
          ui.showMessage(TextMessage::INVALID_VALUE); 
    }
+   return nullptr;
+}
 
-   if (cActual)
+bool CmdRunMenuList::cmdExecute(int menuOption, Data& d, UserInterface& ui)
+{
+   auto cActual= createCmd(menuOption, ui);
+   if(cActual)
       cActual->execute(d, ui);
-
-   return (cActual ? true : false);
+   bool ok= (cActual ? true : false);
+   delete cActual;
+   return ok;
 };

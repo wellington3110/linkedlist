@@ -13,6 +13,7 @@ public:
 private:
    CmdInterface* cActual;
 
+   CmdInterface* createCmd(int menuOption, UserInterface& ui);
    bool cmdExecute(int menuOption, Data& d, UserInterface& ui);
 };
 #endif

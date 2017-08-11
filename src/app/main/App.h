@@ -17,9 +17,9 @@ public:
 private:  
    Data* d;
    UserInterface* ui;
-   CmdInterface* cActual;
 
    bool cmdExecute(int menuOption);
+   CmdInterface* createCmd(int menuOption);
 
 };
 
